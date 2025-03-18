@@ -11,7 +11,7 @@ export default function EditFroms({ isOpen, onClose }: FormsProps) {
 
   return (
     <div className="fixed inset-0 bg-opacity-50 backdrop-blur-sm flex justify-center items-center">
-      <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-400 pointer-events-auto w-[600px]">
+      <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-400 pointer-events-auto w-[601px]">
         <h2 className="text-lg font-bold mb-4">Edit Task</h2>
         <form>
           {/* Row 1: Pavadinimas */}
@@ -28,7 +28,6 @@ export default function EditFroms({ isOpen, onClose }: FormsProps) {
             <input type="date" className="border p-2 w-half" />
             <input type="time" className="border p-2 w-half" />
           </div>
-
 
           <h2 className="mb-1 w-1/4">Sukūrimo Data:</h2>
           <h2 className="mb-1 w-1/4">Koregavimo Data:</h2>
