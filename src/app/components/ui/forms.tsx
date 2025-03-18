@@ -11,12 +11,12 @@ export default function EditFroms({ isOpen, onClose }: FormsProps) {
 
   return (
     <div className="fixed inset-0 bg-opacity-50 backdrop-blur-sm flex justify-center items-center">
-      <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-400 pointer-events-auto w-[601px]">
+      <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-400 pointer-events-auto w-[600px]">
         <h2 className="text-lg font-bold mb-4">Edit Task</h2>
         <form>
           {/* Row 1: Pavadinimas */}
             <h2 className="mb-1 w-1/4">Pavadinimas:</h2>
-            <input type="text" placeholder="Pavadinimas" className="border mb-2 p-2 w-full " />
+            <input type="text" placeholder="Pavadinimas test" className="border mb-2 p-2 w-full " />
 
           {/* Row 2: Aprašymas */}
           <h2 className="mb-0 w-1/4">Aprašymas:</h2>
