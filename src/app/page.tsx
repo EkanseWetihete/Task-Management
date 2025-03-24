@@ -1,18 +1,15 @@
 //app/page.tsx
-"use client";
-import { useState } from 'react';
-import EditForms from "./components/ui/forms";
-import Project from "./components/ui/projects";
+'use client'
 
-export default function Home() {
-  const [isOpen, setIsOpen] = useState(false);
+import { redirect } from 'next/navigation';
 
-  return (
-    <div>
-      <Project setIsOpen={setIsOpen}/>
-      <EditForms isOpen={isOpen} onClose={() => setIsOpen(false)}/>
-    </div>
-  );
+export default function HomePage() {
+  redirect('/dashboard');
 }
 
+/* gonna need to change it for another file
+const [isOpen, setIsOpen] = useState(false);
 
+<Project setIsOpen={setIsOpen}/>
+<EditForms isOpen={isOpen} onClose={() => setIsOpen(false)}/>
+*/

@@ -2,29 +2,23 @@
 "use client";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Bars3Icon } from '@heroicons/react/24/solid'; 
+import { Bars3Icon } from '@heroicons/react/24/solid';
+import { useRouter, usePathname } from "next/navigation";
 
 export default function Combination() {
+  const router = useRouter();
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedPage, setSelectedPage] = useState<string>("dashboard");
 
-  function handleToggle () {
-    setIsOpen(!isOpen);
-  };
-
-  function handleClose() {
+  const handleMenuNavigation = (path: string) => {
+    router.push(path);
     setIsOpen(false);
-  };
-
-  function handleMenuClick (page: string) {
-    setSelectedPage(page); 
-    setIsOpen(false); 
   };
 
   return (
     <>
       <header className="flex justify-center items-center py-4 px-6 bg-blue-600 text-white border-b relative">
-        <button onClick={handleToggle} className="absolute left-6 hover:bg-blue-700 rounded">
+        <button onClick={() => setIsOpen(!isOpen)} className="absolute left-6 hover:bg-blue-700 rounded">
           <Bars3Icon className="h-6 w-6" />
         </button>
 
@@ -37,10 +31,11 @@ export default function Combination() {
         </select>
       </header>
 
+      {/* Sidebar */}
       <div className={`fixed inset-0 z-50 ${isOpen ? "pointer-events-auto" : "pointer-events-none"}`}>
         <div
           className={`fixed inset-0 bg-black transition-opacity duration-300 ${isOpen ? "opacity-50" : "opacity-0"}`}
-          onClick={handleClose}
+          onClick={() => setIsOpen(false)}
         ></div>
 
         <motion.div
@@ -51,30 +46,19 @@ export default function Combination() {
         >
           <div className="flex justify-between items-center mb-4">
             <h2 className="text-lg font-bold">Menu</h2>
-            <button onClick={handleClose} className="text-gray-500 hover:text-black">✖</button>
+            <button onClick={() => setIsOpen(false)} className="text-gray-500 hover:text-black">✖</button>
           </div>
 
           <ul className="space-y-3">
             <li>
-              <a 
-                href="#" 
-                className="block p-2 hover:bg-gray-100 rounded"
-                onClick={() => handleMenuClick("dashboard")}
-              >
-                Dashboard
-              </a>
+              <button onClick={() => handleMenuNavigation("/dashboard")} className={`block w-full text-left p-2 hover:bg-gray-100 rounded ${pathname === "/dashboard" ? "bg-blue-50 text-blue-600" : ""}`}> Dashboard </button>
             </li>
             <li>
-              <a 
-                href="#" 
-                className="block p-2 hover:bg-gray-100 rounded"
-                onClick={() => handleMenuClick("projects")}
-              >
-                Projects
-              </a>
+              <button onClick={() => handleMenuNavigation("/projects")} className={`block w-full text-left p-2 hover:bg-gray-100 rounded ${pathname === "/projects" ? "bg-blue-50 text-blue-600" : ""}`}> Projects </button>
             </li>
-           
-            <li><a href="#" className="block p-2 hover:bg-gray-100 rounded">--Tasks</a></li>
+            <li>
+              <button onClick={() => handleMenuNavigation("/tasks")} className={`block w-full text-left p-2 hover:bg-gray-100 rounded ${pathname === "/tasks" ? "bg-blue-50 text-blue-600" : ""}`}> --Tasks </button>
+            </li>
             <li><a href="#" className="block p-2 hover:bg-gray-100 rounded">--Timeline</a></li>
             <li><a href="#" className="block p-2 hover:bg-gray-100 rounded">--List</a></li>
             <li><a href="#" className="block p-2 hover:bg-gray-100 rounded">Calendar</a></li>
@@ -82,21 +66,6 @@ export default function Combination() {
             <li><a href="#" className="block p-2 hover:bg-gray-100 rounded">Chat</a></li>
           </ul>
         </motion.div>
-      </div>
-
-      <div className="p-6">
-        {selectedPage === "dashboard" && (
-          <div>
-            <h2 className="text-xl font-bold">Dashboard</h2>
-            <p>This is the content for the Dashboard page.</p>
-          </div>
-        )}
-        {selectedPage === "projects" && (
-          <div>
-            <h2 className="text-xl font-bold">Projects Page</h2>
-            <p>This is the content for the Projects page.</p>
-          </div>
-        )}
       </div>
     </>
   );
