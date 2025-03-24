@@ -1,24 +1,24 @@
-// app/components/header.tsx
+// app/components/ui/combination.tsx
 "use client";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Bars3Icon } from '@heroicons/react/24/solid'; // Import the menu icon
+import { Bars3Icon } from '@heroicons/react/24/solid'; 
 
 export default function Combination() {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedPage, setSelectedPage] = useState<string>("dashboard"); // State to track selected page
+  const [selectedPage, setSelectedPage] = useState<string>("dashboard");
 
-  const handleToggle = () => {
+  function handleToggle () {
     setIsOpen(!isOpen);
   };
 
-  const handleClose = () => {
+  function handleClose() {
     setIsOpen(false);
   };
 
-  const handleMenuClick = (page: string) => {
-    setSelectedPage(page); // Update selected page when menu item is clicked
-    setIsOpen(false); // Close the menu after selection
+  function handleMenuClick (page: string) {
+    setSelectedPage(page); 
+    setIsOpen(false); 
   };
 
   return (
@@ -74,11 +74,12 @@ export default function Combination() {
               </a>
             </li>
            
-            <li><a href="#" className="block p-2 hover:bg-gray-100 rounded">Tasks</a></li>
-            <li><a href="#" className="block p-2 hover:bg-gray-100 rounded">Board</a></li>
-            <li><a href="#" className="block p-2 hover:bg-gray-100 rounded">List</a></li>
+            <li><a href="#" className="block p-2 hover:bg-gray-100 rounded">--Tasks</a></li>
+            <li><a href="#" className="block p-2 hover:bg-gray-100 rounded">--Timeline</a></li>
+            <li><a href="#" className="block p-2 hover:bg-gray-100 rounded">--List</a></li>
             <li><a href="#" className="block p-2 hover:bg-gray-100 rounded">Calendar</a></li>
             <li><a href="#" className="block p-2 hover:bg-gray-100 rounded">Teams</a></li>
+            <li><a href="#" className="block p-2 hover:bg-gray-100 rounded">Chat</a></li>
           </ul>
         </motion.div>
       </div>
