@@ -26,7 +26,7 @@ export default function Tasks() {
         setRandomNumbers2(nums2);
     }, []);
 
-    useEffect(() => {
+    useEffect(() => { // Gets tasks
         const fetchTasks = async () => {
         try {
             const response = await fetch('/api/tasks');
@@ -92,8 +92,8 @@ export default function Tasks() {
           </div>
           <EditForms isOpen={isFormOpen} onClose={() => setIsFormOpen(false)} />
         </div>
-      );
-    
+    );
+
 }
 
 function getRandomNumber(min: number, max: number): number {

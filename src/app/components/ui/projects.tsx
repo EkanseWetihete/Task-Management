@@ -9,7 +9,7 @@ interface Task {
 }
 
 interface ProjectProps {
-    setIsOpen: (isOpen: boolean) => void; // Accept setIsOpen as a prop
+    setIsOpen: (isOpen: boolean) => void; 
 }
 
 export default function Project({ setIsOpen }: ProjectProps) {
