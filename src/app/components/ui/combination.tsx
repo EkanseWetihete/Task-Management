@@ -62,10 +62,18 @@ export default function Combination() {
             <li>
               <button onClick={() => handleMenuNavigation("/tasks")} className={`block w-full text-left p-2 hover:bg-gray-100 rounded ${pathname === "/tasks" ? "bg-blue-50 text-blue-600" : ""}`}> ----Tasks </button>
             </li>
-            <li><a href="#" className="block p-2 hover:bg-gray-100 rounded">----Timeline</a></li>
-            <li><a href="#" className="block p-2 hover:bg-gray-100 rounded">----Calendar</a></li>
-            <li><a href="#" className="block p-2 hover:bg-gray-100 rounded">Teams</a></li>
-            <li><a href="#" className="block p-2 hover:bg-gray-100 rounded">Chat</a></li>
+            <li>
+              <button onClick={() => handleMenuNavigation("/timeline")} className={`block w-full text-left p-2 hover:bg-gray-100 rounded ${pathname === "/timeline" ? "bg-blue-50 text-blue-600" : ""}`}> ----Timeline </button>
+            </li>
+            <li>
+              <button onClick={() => handleMenuNavigation("/calendar")} className={`block w-full text-left p-2 hover:bg-gray-100 rounded ${pathname === "/calendar" ? "bg-blue-50 text-blue-600" : ""}`}> ----Calendar </button>
+            </li>
+            <li>
+              <button onClick={() => handleMenuNavigation("/teams")} className={`block w-full text-left p-2 hover:bg-gray-100 rounded ${pathname === "/teams" ? "bg-blue-50 text-blue-600" : ""}`}> Teams </button>
+            </li>
+            <li>
+              <button onClick={() => handleMenuNavigation("/chat")} className={`block w-full text-left p-2 hover:bg-gray-100 rounded ${pathname === "/chat" ? "bg-blue-50 text-blue-600" : ""}`}> Chat </button>
+            </li>
           </ul>
         </motion.div>
       </div>

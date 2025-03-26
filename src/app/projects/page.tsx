@@ -37,7 +37,7 @@ export default function Projects() {
   const router = useRouter()
   return (
     <main className={styles.container}>
-      <h1>Project Content</h1>
+      <h1>Project Content (Testing)</h1>
       
       <table className={styles.projectTable}>
         <thead>
