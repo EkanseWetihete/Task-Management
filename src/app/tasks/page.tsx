@@ -2,12 +2,7 @@
 "use client";
 import { useEffect, useState } from 'react';
 import EditForms from './forms';
-
-interface Task {
-    id: number;
-    title: string;
-    description: string;
-}
+import Task from '../components/interface/ITask';
 
 export default function Tasks() {
     const [tasks, setTasks] = useState<Task[]>([]);

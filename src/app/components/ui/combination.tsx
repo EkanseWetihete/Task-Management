@@ -54,14 +54,16 @@ export default function Combination() {
               <button onClick={() => handleMenuNavigation("/dashboard")} className={`block w-full text-left p-2 hover:bg-gray-100 rounded ${pathname === "/dashboard" ? "bg-blue-50 text-blue-600" : ""}`}> Dashboard </button>
             </li>
             <li>
-              <button onClick={() => handleMenuNavigation("/projects")} className={`block w-full text-left p-2 hover:bg-gray-100 rounded ${pathname === "/projects" ? "bg-blue-50 text-blue-600" : ""}`}> Projects </button>
+              <button onClick={() => handleMenuNavigation("/projects")} className={`block w-full text-left p-2 hover:bg-gray-100 rounded ${pathname === "/projects" ? "bg-blue-50 text-blue-600" : ""}`}> Task Management </button>
             </li>
             <li>
-              <button onClick={() => handleMenuNavigation("/tasks")} className={`block w-full text-left p-2 hover:bg-gray-100 rounded ${pathname === "/tasks" ? "bg-blue-50 text-blue-600" : ""}`}> --Tasks </button>
+              <button onClick={() => handleMenuNavigation("/projects")} className={`block w-full text-left p-2 hover:bg-gray-100 rounded ${pathname === "/projects" ? "bg-blue-50 text-blue-600" : ""}`}> --Projects </button>
             </li>
-            <li><a href="#" className="block p-2 hover:bg-gray-100 rounded">--Timeline</a></li>
-            <li><a href="#" className="block p-2 hover:bg-gray-100 rounded">--List</a></li>
-            <li><a href="#" className="block p-2 hover:bg-gray-100 rounded">Calendar</a></li>
+            <li>
+              <button onClick={() => handleMenuNavigation("/tasks")} className={`block w-full text-left p-2 hover:bg-gray-100 rounded ${pathname === "/tasks" ? "bg-blue-50 text-blue-600" : ""}`}> ----Tasks </button>
+            </li>
+            <li><a href="#" className="block p-2 hover:bg-gray-100 rounded">----Timeline</a></li>
+            <li><a href="#" className="block p-2 hover:bg-gray-100 rounded">----Calendar</a></li>
             <li><a href="#" className="block p-2 hover:bg-gray-100 rounded">Teams</a></li>
             <li><a href="#" className="block p-2 hover:bg-gray-100 rounded">Chat</a></li>
           </ul>
