@@ -2,8 +2,6 @@ import React from "react";
 import TaskProps from '../interface/TaskProps';
 
 const TaskItem: React.FC<TaskProps> = ({ task, setIsFormOpen }) => {
-    
-
   return (
     <li key={task.id} className="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg shadow border border-gray-400">
       <div className="mb-2">
@@ -20,7 +18,7 @@ const TaskItem: React.FC<TaskProps> = ({ task, setIsFormOpen }) => {
             <div className="bg-green-500 h-2.5 rounded-full" style={{ width: `${(task.min / task.max) * 100}%` }}></div>
           </div>
         </div>
-        <button onClick={() => setIsFormOpen(true)} className="text-xs bg-yellow-400 text-black px-2 py-1 rounded self-end">
+        <button type="button" className="text-xs bg-yellow-400 text-black px-2 py-1 rounded self-end" onClick={() => setIsFormOpen(true)} >
           Edit
         </button>
       </div>

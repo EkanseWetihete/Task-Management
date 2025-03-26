@@ -10,7 +10,7 @@ import useTasks from './components/effect/useTasks';
 export default function Tasks() {
   const { tasks } = useTasks();
   const [isFormOpen, setIsFormOpen] = useState(false);
-  
+
   return (
     <div>
       <div className="mb-2 px-3 w-1/2 mx-auto flex gap-2">
@@ -21,20 +21,20 @@ export default function Tasks() {
       
       <div className="overflow-x-auto scroll-smooth">
         <div className="flex space-x-6 min-w-max p-4"> 
-          {Object.values(TaskStatus).map((status) => (
-            <div key={status} className="bg-white dark:bg-gray-800 rounded-lg shadow p-4 border border-gray-300 w-80">
-              <TaskColumn status={status}/> 
-              <ul className="space-y-3">
-                {tasks.map((task) => (
+        {Object.values(TaskStatus).map((status) => (
+          <div key={status} className="bg-white dark:bg-gray-800 rounded-lg shadow p-4 border border-gray-300 w-80">
+            <TaskColumn status={status} />
+            <ul className="space-y-3">
+              {tasks.filter((task) => task.status === status).map((task) => (
                   <TaskItem
                     key={task.id}
                     task={task}
                     setIsFormOpen={setIsFormOpen}
                   />
                 ))}
-              </ul>
-            </div>
-          ))}
+            </ul>
+          </div>
+        ))}
         </div>
       </div>
       <EditForms isOpen={isFormOpen} onClose={() => setIsFormOpen(false)} />

@@ -1,7 +1,7 @@
 export enum TaskStatus {
-    Free = "Laisvos",
-    InProgress = "Vykdomos",
-    Removed = "Pašalintos",
-    Delayed = "Atidėtos",
-    Done = "Atliktos",
+    Free = "Free",
+    InProgress = "InProgress",
+    Done = "Done",
+    Removed = "Removed",
+    Delayed = "Delayed",
   }
