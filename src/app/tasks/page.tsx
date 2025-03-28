@@ -5,6 +5,7 @@ import EditForms from './forms';
 import TaskItem from "./components/ui/TaskBox";
 import TaskColumn from './components/ui/TaskColumn';
 import useTasks from './components/effect/useTasks';
+import { DndContext } from '@dnd-kit/core';
 
 export default function Tasks() {
   const { tasks, filters } = useTasks();
@@ -19,22 +20,24 @@ export default function Tasks() {
       </div>
       
       <div className="overflow-x-auto scroll-smooth">
-        <div className="flex space-x-6 min-w-max p-4"> 
-        {filters.map((status) => (
-          <div key={status} className="bg-white dark:bg-gray-800 rounded-lg shadow p-4 border border-gray-300 w-80">
-            <TaskColumn status={status} />
-            <ul className="space-y-3">
-              {tasks.filter((task) => task.status === status).map((task) => (
-                  <TaskItem
-                    key={task.id}
-                    task={task}
-                    setIsFormOpen={setIsFormOpen}
-                  />
-                ))}
-            </ul>
+        <DndContext>
+          <div className="flex space-x-6 min-w-max p-4"> 
+          {filters.map((status) => (
+            <div key={status} className="bg-white dark:bg-gray-800 rounded-lg shadow p-4 border border-gray-300 w-80">
+              <TaskColumn status={status} />
+              <ul className="space-y-3">
+                  {tasks.filter((task) => task.status === status).map((task) => (
+                      <TaskItem
+                        key={task.id}
+                        task={task}
+                        setIsFormOpen={setIsFormOpen}
+                      />
+                    ))}
+              </ul>
+            </div>
+          ))}
           </div>
-        ))}
-        </div>
+        </DndContext>
       </div>
       <EditForms isOpen={isFormOpen} onClose={() => setIsFormOpen(false)} />
     </div>
