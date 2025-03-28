@@ -3,12 +3,11 @@
 import { useState } from 'react';
 import EditForms from './forms';
 import TaskItem from "./components/ui/TaskBox";
-import { TaskStatus } from '../components/enum/status';
 import TaskColumn from './components/ui/TaskColumn';
 import useTasks from './components/effect/useTasks';
 
 export default function Tasks() {
-  const { tasks } = useTasks();
+  const { tasks, filters } = useTasks();
   const [isFormOpen, setIsFormOpen] = useState(false);
 
   return (
@@ -21,7 +20,7 @@ export default function Tasks() {
       
       <div className="overflow-x-auto scroll-smooth">
         <div className="flex space-x-6 min-w-max p-4"> 
-        {Object.values(TaskStatus).map((status) => (
+        {filters.map((status) => (
           <div key={status} className="bg-white dark:bg-gray-800 rounded-lg shadow p-4 border border-gray-300 w-80">
             <TaskColumn status={status} />
             <ul className="space-y-3">

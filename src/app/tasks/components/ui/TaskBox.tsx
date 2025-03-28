@@ -5,8 +5,8 @@ const TaskItem: React.FC<TaskProps> = ({ task, setIsFormOpen }) => {
   return (
     <li key={task.id} className="bg-gray-100 dark:bg-gray-700 p-3 rounded-lg shadow border border-gray-400">
       <div className="mb-2">
-        <h3 className="font-semibold">Užduotis {task.title}</h3>
-        <p className="text-sm text-gray-600 dark:text-gray-300">Užduoties aprašymas Nr. {task.id + 1}.</p>
+        <h3 className="font-semibold">{task.id}. Užduotis {task.title}</h3>
+        <p className="text-sm text-gray-600 dark:text-gray-300">Užduoties aprašymas Nr. .</p>
       </div>
       <div className="flex items-center space-x-4">
         <div className="w-10/12">

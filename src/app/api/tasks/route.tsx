@@ -1,51 +1,30 @@
 // app/api/tasks/route.tsx
 import { NextResponse } from 'next/server';
-import { TaskStatus } from '@/app/components/enum/status';
-
-const tasks = [
-  { 
-    id: 1, 
-    title: 'Valgyti', 
-    description: 'Pirmoji užduotis',
-    progress: [["Uzduoties dalis 1", true], ["Uzduoties dalis 2", true], ["Uzduoties dalis 3", true]],
-    status: TaskStatus.Free,
-    min: 0,
-    max: 1,
-    deadline: Date,
-    creationDate: Date,
-    editingDate: Date
-  },
-  { 
-    id: 2, 
-    title: 'Dirbti', 
-    description: 'Antroji užduotis',
-    progress: [["Uzduoties dalis 1", true], ["Uzduoties dalis 2", false], ["Uzduoties dalis 3", false]],
-    status: TaskStatus.Free,
-    min: 0,
-    max: 1,
-    deadline: Date,
-    creationDate: Date,
-    editingDate: Date
-  },
-  { 
-    id: 3, 
-    title: 'Vaikščioti', 
-    description: 'Trečioji užduotis',
-    progress: [["Uzduoties dalis 1", true], ["Uzduoties dalis 2", false], ["Uzduoties dalis 3", true]],
-    status: TaskStatus.InProgress,
-    min: 0,
-    max: 1,
-    deadline: Date,
-    creationDate: Date,
-    editingDate: Date
-  },
-];
+import tasksData from './data.json'
 
 export async function GET() {
-  tasks.forEach(task => {
-    task.min = task.progress.filter(item => item[1] === true).length;
-    task.max = task.progress.length;
-  });
+  try {
+    const processedTasks = tasksData.tasks.map((task, index) => ({
+      id: index + 1,
+      ...task,
+      min: task.progress.filter(item => item[1] === true).length,
+      max: task.progress.length,
+      deadline: task.deadline ? new Date(task.deadline) : new Date(),
+      creationDate: task.creationDate ? new Date(task.creationDate) : new Date(),
+      editingDate: task.editingDate ? new Date(task.editingDate) : new Date()
+    }));
 
-  return NextResponse.json(tasks);
+    const defaultStatus = tasksData.defaultStatus[0].status || ['Free', 'In progress', 'Done', 'Pending', 'Deleted'];
+    
+    return NextResponse.json({
+      tasks: processedTasks,
+      defaultStatus: defaultStatus
+    });
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  } catch (error) {
+    return NextResponse.json(
+      { error: 'Failed to process tasks' },
+      { status: 500 }
+    );
+  }
 }

@@ -16,8 +16,8 @@ export default function Combination() {
   };
 
   return (
-    <>
-      <header className="flex justify-center items-center py-4 px-6 bg-blue-600 text-white border-b relative">
+    <div>
+      <header className="flex justify-center items-center py-2 px-6 bg-blue-600 text-white border-b relative">
         <button onClick={() => setIsOpen(!isOpen)} className="absolute left-6 hover:bg-blue-700 rounded">
           <Bars3Icon className="h-6 w-6" />
         </button>
@@ -77,6 +77,6 @@ export default function Combination() {
           </ul>
         </motion.div>
       </div>
-    </>
+    </div>
   );
 }

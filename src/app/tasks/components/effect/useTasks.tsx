@@ -1,8 +1,16 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+//app/tasks/components/effect/useTasks.tsx
 import { useState, useEffect } from "react";
 import Task from "@/app/components/interface/ITask";
 
+interface IfilterTasks {
+  Task: Task[],
+  defaultStatus: string[]
+}
+
 const useTasks = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
+  const [filters, setFilters] = useState<string[]>([]);
   const [randomNumbers1, setRandomNumbers1] = useState<number[]>([]);
   const [randomNumbers2, setRandomNumbers2] = useState<number[]>([]);
   
@@ -22,7 +30,12 @@ const useTasks = () => {
       try {
         const response = await fetch("/api/tasks");
         const data = await response.json();
-        setTasks(data);
+        
+        setTasks(data.tasks);
+        
+        const defaultStatus = data.defaultStatus; 
+        setFilters(defaultStatus);  
+
       } catch (error) {
         console.error("Failed to fetch tasks:", error);
       }
@@ -30,7 +43,7 @@ const useTasks = () => {
     fetchTasks();
   }, []); 
 
-  return { tasks, randomNumbers1, randomNumbers2, setTasks };
+  return { tasks, filters, setTasks };
 };
 
 function getRandomNumber(min: number, max: number): number {

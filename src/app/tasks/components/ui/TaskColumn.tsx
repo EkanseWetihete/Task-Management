@@ -1,11 +1,10 @@
 import React from "react";
-import { TaskStatus } from "@/app/components/enum/status";
 
 interface TaskColumnProps {
-  status: TaskStatus;
+  status: string;
 }
 
-const TaskColumn: React.FC<TaskColumnProps> = ({ status }) => {
+const TaskColumn: React.FC<TaskColumnProps> = ({status}) => {
     return (
         <div className="flex justify-between items-center mb-4">
         <h2 className="text-lg font-bold">{status}</h2>

@@ -1,16 +1,13 @@
-import { TaskStatus } from '@/app/components/enum/status';
-
-type IProgress = [string, number, number];
-
+//app/api/interface/ITask.tsx
 export default interface Task {
-    id: number;
-    title: string;
-    description: string;
-    progress: IProgress[];
-    status: TaskStatus;
-    min: number;
-    max: number;
-    deadline: Date;
-    creationDate: Date;
-    editingDate: Date;
+  id: number;
+  title: string;
+  description: string;
+  progress: (string | boolean)[][];
+  status: string;  // Now directly on the Task object
+  min: number;
+  max: number;
+  deadline: string;
+  creationDate: string;
+  editingDate: string;
 }
