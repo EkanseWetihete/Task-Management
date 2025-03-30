@@ -11,19 +11,6 @@ interface IfilterTasks {
 const useTasks = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [filters, setFilters] = useState<string[]>([]);
-  const [randomNumbers1, setRandomNumbers1] = useState<number[]>([]);
-  const [randomNumbers2, setRandomNumbers2] = useState<number[]>([]);
-  
-  useEffect(() => {
-    const nums1 = [];
-    const nums2 = [];
-    for (let i = 0; i < 12; i++) {
-      nums1.push(getRandomNumber(1, 5));
-      nums2.push(getRandomNumber(5, 10));
-    }
-    setRandomNumbers1(nums1);
-    setRandomNumbers2(nums2);
-  }, []); 
 
   useEffect(() => {
     const fetchTasks = async () => {
@@ -45,9 +32,5 @@ const useTasks = () => {
 
   return { tasks, filters, setTasks };
 };
-
-function getRandomNumber(min: number, max: number): number {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
 
 export default useTasks;

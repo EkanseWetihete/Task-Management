@@ -57,16 +57,19 @@ export default function Combination() {
               <button onClick={() => handleMenuNavigation("/projects")} className={`block w-full text-left p-2 hover:bg-gray-100 rounded ${pathname === "/projects" ? "bg-blue-50 text-blue-600" : ""}`}> Task Management </button>
             </li>
             <li>
-              <button onClick={() => handleMenuNavigation("/projects")} className={`block w-full text-left p-2 hover:bg-gray-100 rounded ${pathname === "/projects" ? "bg-blue-50 text-blue-600" : ""}`}> --Projects </button>
+              <button onClick={() => handleMenuNavigation("/projects")} className={`block w-full text-left p-2 hover:bg-gray-100 rounded ${pathname === "/projects" ? "bg-blue-50 text-blue-600" : ""}`}> __Projects </button>
             </li>
             <li>
-              <button onClick={() => handleMenuNavigation("/tasks")} className={`block w-full text-left p-2 hover:bg-gray-100 rounded ${pathname === "/tasks" ? "bg-blue-50 text-blue-600" : ""}`}> ----Tasks </button>
+              <button onClick={() => handleMenuNavigation("/tasks")} className={`block w-full text-left p-2 hover:bg-gray-100 rounded ${pathname === "/tasks" ? "bg-blue-50 text-blue-600" : ""}`}> ____Tasks </button>
             </li>
             <li>
-              <button onClick={() => handleMenuNavigation("/timeline")} className={`block w-full text-left p-2 hover:bg-gray-100 rounded ${pathname === "/timeline" ? "bg-blue-50 text-blue-600" : ""}`}> ----Timeline </button>
+              <button onClick={() => handleMenuNavigation("/timeline")} className={`block w-full text-left p-2 hover:bg-gray-100 rounded ${pathname === "/timeline" ? "bg-blue-50 text-blue-600" : ""}`}> ____Timeline </button>
             </li>
             <li>
-              <button onClick={() => handleMenuNavigation("/calendar")} className={`block w-full text-left p-2 hover:bg-gray-100 rounded ${pathname === "/calendar" ? "bg-blue-50 text-blue-600" : ""}`}> ----Calendar </button>
+              <button onClick={() => handleMenuNavigation("/calendar")} className={`block w-full text-left p-2 hover:bg-gray-100 rounded ${pathname === "/calendar" ? "bg-blue-50 text-blue-600" : ""}`}> ____Calendar </button>
+            </li>
+            <li>
+              <button onClick={() => handleMenuNavigation("/audit_log")} className={`block w-full text-left p-2 hover:bg-gray-100 rounded ${pathname === "/audit_log" ? "bg-blue-50 text-blue-600" : ""}`}> ____Audit Log </button>
             </li>
             <li>
               <button onClick={() => handleMenuNavigation("/teams")} className={`block w-full text-left p-2 hover:bg-gray-100 rounded ${pathname === "/teams" ? "bg-blue-50 text-blue-600" : ""}`}> Teams </button>
