@@ -57,7 +57,7 @@ export default function Tasks() {
       </div>
       
       <div className="overflow-x-auto scroll-smooth">
-        <DndContext onDragEnd={handleDragEnd}>  {/* Add the handleDragEnd here */}
+        <DndContext onDragEnd={handleDragEnd}> 
           <div className="flex space-x-6 min-w-max p-4 min-h-[500px]"> 
           {filters.map((status) => (
             <div key={status} className="bg-white mb-4 dark:bg-gray-800 rounded-lg shadow p-4 border border-gray-300 w-80">

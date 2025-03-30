@@ -3,7 +3,7 @@
 import React from "react";
 import { PlusIcon } from "@heroicons/react/24/solid";
 import { useEffect, useState } from 'react';
-import IOpen from '../components/interface/IOpen';
+import IOpen from "./components/interface/IOpen";
 
 export default function EditFroms({isOpen, onClose }: IOpen) {
   const [getDate, setDate] = useState<string>('');

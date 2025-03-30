@@ -1,0 +1,140 @@
+{
+  "tasks": [
+    {
+      "id": 0,
+      "title": "Valgyti",
+      "description": "Pirmoji užduotis",
+      "progress": [
+        [
+          "Uzduoties dalis 1",
+          true
+        ],
+        [
+          "Uzduoties dalis 2",
+          true
+        ],
+        [
+          "Uzduoties dalis 3",
+          true
+        ]
+      ],
+      "status": "In progress",
+      "min": 0,
+      "max": 1,
+      "deadline": "Date",
+      "creationDate": "Date",
+      "editingDate": "2025-03-30T17:06:46.515Z"
+    },
+    {
+      "id": 1,
+      "title": "Dirbti",
+      "description": "Antroji užduotis",
+      "progress": [
+        [
+          "Uzduoties dalis 1",
+          true
+        ],
+        [
+          "Uzduoties dalis 2",
+          false
+        ],
+        [
+          "Uzduoties dalis 3",
+          false
+        ]
+      ],
+      "status": "Free",
+      "min": 0,
+      "max": 1,
+      "deadline": "Date",
+      "creationDate": "Date",
+      "editingDate": "Date"
+    },
+    {
+      "id": 2,
+      "title": "Vaikščioti",
+      "description": "Trečioji užduotis",
+      "progress": [
+        [
+          "Uzduoties dalis 1",
+          true
+        ],
+        [
+          "Uzduoties dalis 2",
+          false
+        ],
+        [
+          "Uzduoties dalis 3",
+          true
+        ]
+      ],
+      "status": "In progress",
+      "min": 0,
+      "max": 1,
+      "deadline": "Date",
+      "creationDate": "Date",
+      "editingDate": "Date"
+    },
+    {
+      "id": 3,
+      "title": "testing",
+      "description": "Trečioji užduotis",
+      "progress": [
+        [
+          "Uzduoties dalis 1",
+          true
+        ],
+        [
+          "Uzduoties dalis 2",
+          false
+        ],
+        [
+          "Uzduoties dalis 3",
+          true
+        ]
+      ],
+      "status": "Removed",
+      "min": 0,
+      "max": 1,
+      "deadline": "Date",
+      "creationDate": "Date",
+      "editingDate": "Date"
+    },
+    {
+      "id": 4,
+      "title": "testing2",
+      "description": "Trečioji užduotis",
+      "progress": [
+        [
+          "Uzduoties dalis 1",
+          true
+        ],
+        [
+          "Uzduoties dalis 2",
+          false
+        ],
+        [
+          "Uzduoties dalis 3",
+          true
+        ]
+      ],
+      "status": "In progress",
+      "min": 0,
+      "max": 1,
+      "deadline": "Date",
+      "creationDate": "Date",
+      "editingDate": "Date"
+    }
+  ],
+  "defaultStatus": [
+    {
+      "status": [
+        "Free",
+        "In progress",
+        "Done",
+        "Delayed",
+        "Removed"
+      ]
+    }
+  ]
+}

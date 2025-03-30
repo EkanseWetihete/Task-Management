@@ -2,7 +2,7 @@
 import styles from './components/projects.module.css';
 import { useRouter } from 'next/navigation'
 
-const sampleProjects = [
+const sampleProjects = [ //testing
   {
     id: 1,
     name: "E-commerce Platform",
@@ -56,7 +56,7 @@ export default function Projects() {
             <tr key={project.id} className={styles.tableRow}>
               <td className={styles.dataCell}>
                 <div className={`${styles.projectButton}`}>
-                  <button type="button" className={styles.projectButton} onClick={() => router.push('/tasks')}>{project.name}</button>
+                  <button type="button" className={styles.projectButton} onClick={() => router.push('/projects/tasks')}>{project.name}</button>
                 </div>
               </td>
 

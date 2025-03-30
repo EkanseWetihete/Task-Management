@@ -12,7 +12,7 @@ interface ProjectProps {
     setIsOpen: (isOpen: boolean) => void; 
 }
 
-export default function Project({ setIsOpen }: ProjectProps) {
+export default function Project({ setIsOpen }: ProjectProps) { // old
     const [tasks, setTasks] = useState<Task[]>([]);
     const [randomNumbers1, setRandomNumbers1] = useState<number[]>([]);
     const [randomNumbers2, setRandomNumbers2] = useState<number[]>([]);

@@ -1,20 +1,41 @@
 // app/components/ui/combination.tsx
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import ReactCountryFlag from "react-country-flag";
 import { Bars3Icon } from '@heroicons/react/24/solid';
 import { useRouter, usePathname } from "next/navigation";
+
 
 export default function Combination() {
   const router = useRouter();
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const [language, setLanguage] = useState('lt');
 
+  const title = { // testing purposes
+    lt: "Užduočių valdymas",
+    en: "Task Management",
+    ru: "Управление задачами"
+  };
+  
   const handleMenuNavigation = (path: string) => {
     router.push(path);
     setIsOpen(false);
   };
 
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem('language');
+    if (savedLanguage) {
+      setLanguage(savedLanguage);
+    }
+  }, []);
+  
+  useEffect(() => {
+    localStorage.setItem('language', language);
+
+  }, [language]);
+  
   return (
     <div>
       <header className="flex justify-center items-center py-2 px-6 bg-blue-600 text-white border-b relative">
@@ -22,7 +43,24 @@ export default function Combination() {
           <Bars3Icon className="h-6 w-6" />
         </button>
 
-        <h1 className="text-2xl font-bold">Užduočių valdymas</h1>
+        <h1 className="text-2xl font-bold">{title[language as keyof typeof title]}</h1>
+
+         {/* Language selector */}
+        <div className="flex items-center absolute right-30 gap-4">
+          <div className="flex gap-2 bg-blue-700/30 p-1 rounded-lg">
+            <button onClick={() => setLanguage('lt')} className={`p-1 rounded-md hover:bg-blue-500 transition-colors ${language === 'lt' ? 'bg-blue-500' : ''}`} aria-label="Lietuvių kalba">
+              <ReactCountryFlag countryCode="LT" svg className="w-5 h-5 object-contain"aria-hidden="true"/>
+            </button>
+            
+            <button onClick={() => setLanguage('en')} className={`p-1 rounded-md hover:bg-blue-500 transition-colors ${language === 'en' ? 'bg-blue-500' : ''}`} aria-label="English language">
+              <ReactCountryFlag countryCode="US" svg className="w-5 h-5 object-contain"aria-hidden="true"/>
+            </button>
+            
+            <button onClick={() => setLanguage('ru')} className={`p-1 rounded-md hover:bg-blue-500 transition-colors ${language === 'ru' ? 'bg-blue-500' : ''}`} aria-label="Русский язык">
+              <ReactCountryFlag countryCode="RU" svg className="w-5 h-5 object-contain"aria-hidden="true"/>
+            </button>
+          </div>
+        </div>
 
         <select className="p-2 border rounded bg-white text-black absolute right-6">
           <option>Admin</option>
@@ -60,7 +98,7 @@ export default function Combination() {
               <button onClick={() => handleMenuNavigation("/projects")} className={`block w-full text-left p-2 hover:bg-gray-100 rounded ${pathname === "/projects" ? "bg-blue-50 text-blue-600" : ""}`}> __Projects </button>
             </li>
             <li>
-              <button onClick={() => handleMenuNavigation("/tasks")} className={`block w-full text-left p-2 hover:bg-gray-100 rounded ${pathname === "/tasks" ? "bg-blue-50 text-blue-600" : ""}`}> ____Tasks </button>
+              <button onClick={() => handleMenuNavigation("/projects/tasks")} className={`block w-full text-left p-2 hover:bg-gray-100 rounded ${pathname === "/projects/tasks" ? "bg-blue-50 text-blue-600" : ""}`}> ____Tasks </button>
             </li>
             <li>
               <button onClick={() => handleMenuNavigation("/timeline")} className={`block w-full text-left p-2 hover:bg-gray-100 rounded ${pathname === "/timeline" ? "bg-blue-50 text-blue-600" : ""}`}> ____Timeline </button>

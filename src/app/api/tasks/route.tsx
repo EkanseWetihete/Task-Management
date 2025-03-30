@@ -1,8 +1,8 @@
 // app/api/tasks/route.tsx
 import { NextResponse } from 'next/server';
-import tasksData from './data.json'
+import tasksData from './data.json' 
 
-export async function GET() {
+export async function GET() { //temporary
   try {
     //eslint-disable-next-line @typescript-eslint/no-unused-vars
     const processedTasks = tasksData.tasks.map((task, index) => ({
@@ -29,22 +29,30 @@ export async function GET() {
   }
 }
 
-export async function PUT(req: Request) {
+export async function PUT(req: Request) { //temporary (i will change to MySQL in the future)
   try {
     const { id, status } = await req.json();
-    const taskIndex = tasksData.tasks.findIndex(task => task.id === id);
 
+    if (typeof id !== 'number' || id < 0) {
+      return NextResponse.json({ error: 'Invalid task ID' }, { status: 400 });
+    }
+
+    const taskIndex = tasksData.tasks.findIndex((task) => task.id === id);
     if (taskIndex === -1) {
       return NextResponse.json({ error: 'Task not found' }, { status: 404 });
     }
 
+    const allowedStatuses = tasksData.defaultStatus[0].status || ['Free', 'In progress', 'Done', 'Pending', 'Deleted'];
+    if (!allowedStatuses.includes(status)) {
+      return NextResponse.json({ error: 'Invalid status' }, { status: 400 });
+    }
+
     tasksData.tasks[taskIndex].status = status;
-    tasksData.tasks[taskIndex].editingDate = new Date().toISOString();  // Update editing date
+    tasksData.tasks[taskIndex].editingDate = new Date().toISOString();
 
     return NextResponse.json({ task: tasksData.tasks[taskIndex] });
-
     //eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (error) {
-    return NextResponse.json({ error: 'Failed to update task' }, { status: 500 });
+      return NextResponse.json({ error: 'Failed to update task' }, { status: 500 });
   }
 }
