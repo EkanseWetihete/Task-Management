@@ -23,17 +23,12 @@ export default function Tasks() {
         <DndContext>
           <div className="flex space-x-6 min-w-max p-4"> 
           {filters.map((status) => (
-            <div key={status} className="bg-white dark:bg-gray-800 rounded-lg shadow p-4 border border-gray-300 w-80">
-              <TaskColumn status={status} />
-              <ul className="space-y-3">
+            <div key={status} className="bg-white mb-4 dark:bg-gray-800 rounded-lg shadow p-4 border border-gray-300 w-80">
+              <TaskColumn key={status} status={status}>
                   {tasks.filter((task) => task.status === status).map((task) => (
-                      <TaskItem
-                        key={task.id}
-                        task={task}
-                        setIsFormOpen={setIsFormOpen}
-                      />
+                      <TaskItem key={task.id} task={task} setIsFormOpen={setIsFormOpen} />
                     ))}
-              </ul>
+              </TaskColumn>
             </div>
           ))}
           </div>

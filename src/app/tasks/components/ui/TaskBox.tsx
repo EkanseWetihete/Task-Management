@@ -3,7 +3,7 @@ import TaskProps from '../interface/TaskProps';
 import { useDraggable } from '@dnd-kit/core';
 
 const TaskItem: React.FC<TaskProps> = ({ task, setIsFormOpen }) => {
-  const { attributes, listeners, setNodeRef, transform } = useDraggable({
+  const { attributes, listeners, setNodeRef: setDraggableRef, transform } = useDraggable({
     id: task.id, 
   });
 
@@ -12,9 +12,9 @@ const TaskItem: React.FC<TaskProps> = ({ task, setIsFormOpen }) => {
   } : undefined;
 
   return (
-    <div ref={setNodeRef} style={style} className="bg-gray-100 dark:bg-gray-700 rounded-lg shadow overflow-hidden border border-black border-opacity-20">
-      {/* Top Bar Header */}
-      <div {...listeners} {...attributes}  className="bg-blue-500 dark:bg-blue-600 px-4 py-1 text-white font-medium flex justify-between items-center shadow cursor-move overflow-hidden">
+    <div ref={setDraggableRef} style={style} className="bg-gray-100 dark:bg-gray-700 rounded-lg shadow overflow-hidden border border-black border-opacity-20">
+      {/* Top Bar */}
+      <div {...listeners} {...attributes} className="bg-blue-500 dark:bg-blue-600 px-4 py-1 text-white font-medium flex justify-between items-center shadow cursor-move overflow-hidden">
         <span>Task #{task.id}</span>
         <span className="text-xs bg-blue-400 dark:bg-blue-500 px-2 py-1 rounded-full">
           {((task.min / task.max) * 100).toFixed(0)}% Complete
@@ -29,7 +29,6 @@ const TaskItem: React.FC<TaskProps> = ({ task, setIsFormOpen }) => {
             {task.description || "No description provided"}
           </p>
         </div>
-        
         <div className="flex items-center space-x-4">
           <div className="w-10/12">
             <div className="flex justify-between text-xs text-gray-500 mb-1">
@@ -43,11 +42,7 @@ const TaskItem: React.FC<TaskProps> = ({ task, setIsFormOpen }) => {
               ></div>
             </div>
           </div>
-          <button 
-            type="button" 
-            className="text-xs bg-yellow-400 hover:bg-yellow-500 text-black px-3 py-1.5 rounded transition-colors"
-            onClick={() => setIsFormOpen(true)}
-          >
+          <button type="button" className="text-xs bg-yellow-400 hover:bg-yellow-500 text-black px-3 py-1.5 rounded transition-colors" onClick={() => setIsFormOpen(true)}>
             Edit
           </button>
         </div>
